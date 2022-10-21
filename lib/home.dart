@@ -275,7 +275,7 @@ class _HomePageState extends State<HomePage> {
         child: Text(
           text,
           style: TextStyle(
-              color: textColors, fontWeight: FontWeight.w500, fontSize: 15),
+              color: textColors, fontWeight: FontWeight.w500, fontSize: 12),
         ),
       ),
     );
@@ -284,7 +284,7 @@ class _HomePageState extends State<HomePage> {
   Widget bigContainer({productText, productImage}) {
     return Container(
       width: 160,
-      height: 260,
+      height: 220,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
@@ -294,8 +294,8 @@ class _HomePageState extends State<HomePage> {
           Image.asset(
             // 'assets/pepsodent.jpg',
             productImage,
-            width: 170,
-            height: 140,
+            width: 180,
+            height: 100,
           ),
           Text(
             productText,
@@ -329,8 +329,8 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 margin: EdgeInsets.only(right: 5),
-                width: 42,
-                height: 42,
+                width: 35,
+                height: 35,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.purple, width: 2),
                   borderRadius: BorderRadius.circular(8),
@@ -347,17 +347,15 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          Container(
-            margin: EdgeInsets.only(
-              right: 120,
-            ),
+          Padding(
+            padding: const EdgeInsets.only(right: 100),
             child: Text(
               '1kg',
               textAlign: TextAlign.start,
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
-                  color: Colors.grey),
+                  color: Colors.grey.shade700),
             ),
           ),
         ],
