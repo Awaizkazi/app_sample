@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +10,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int index = 2;
+  final items = [
+    Icon(Icons.home, size: 30),
+    Icon(Icons.category, size: 30),
+    Icon(Icons.search, size: 30),
+    Icon(Icons.menu, size: 30),
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -209,12 +217,24 @@ class _HomePageState extends State<HomePage> {
                     bigContainer(
                         productText: 'CLoseup Deep\nAction Toothpaste',
                         productImage: 'assets/closeup.png'),
-                    SizedBox(width: 10),
+                    SizedBox(
+                      width: 10,
+                    ),
                   ],
                 ),
               ),
             ],
           ),
+        ),
+        extendBody: true,
+        bottomNavigationBar: CurvedNavigationBar(
+          items: items,
+          color: Colors.white,
+          backgroundColor: Colors.white,
+          buttonBackgroundColor: Color(0xff120E97),
+          index: index,
+          height: 50,
+          animationDuration: Duration(milliseconds: 450),
         ),
       ),
     );
