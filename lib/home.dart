@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 224, 228, 244),
         appBar: AppBar(
+          // toolbarHeight: 200,
           systemOverlayStyle: SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: Colors.transparent,
@@ -44,31 +45,35 @@ class _HomePageState extends State<HomePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  firstRowContainer(
-                      containerColor: Colors.white,
-                      icon: Icons.health_and_safety,
-                      text: 'Health Care',
-                      containerHeight: 90.0,
-                      containerWidth: 120.0),
-                  firstRowContainer(
-                      containerColor: const Color(0xff120E97),
-                      icon: Icons.personal_injury,
-                      text: 'Personal Care',
-                      containerHeight: 90.0,
-                      containerWidth: 120.0,
-                      iconColor: Colors.white,
-                      textColor: Colors.white),
-                  firstRowContainer(
-                      containerColor: Colors.white,
-                      icon: Icons.food_bank,
-                      text: 'Food care',
-                      containerHeight: 90.0,
-                      containerWidth: 120.0),
-                ],
+              //  SizedBox(height: 10),
+              Container(
+                height: 120,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    firstRowContainer(
+                        containerColor: Colors.white,
+                        icon: Icons.health_and_safety,
+                        text: 'Health Care',
+                        containerHeight: 90.0,
+                        containerWidth: 120.0),
+                    firstRowContainer(
+                        containerColor: const Color(0xff120E97),
+                        icon: Icons.personal_injury,
+                        text: 'Personal Care',
+                        containerHeight: 90.0,
+                        containerWidth: 120.0,
+                        iconColor: Colors.white,
+                        textColor: Colors.white),
+                    firstRowContainer(
+                        containerColor: Colors.white,
+                        icon: Icons.food_bank,
+                        text: 'Food care',
+                        containerHeight: 90.0,
+                        containerWidth: 120.0),
+                  ],
+                ),
               ),
               const SizedBox(height: 30),
               SingleChildScrollView(
@@ -137,15 +142,21 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
                     SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
                     SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
                     SizedBox(width: 10),
-                    bigContainer(),
-                    SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
                     SizedBox(width: 10),
                   ],
                 ),
@@ -183,15 +194,21 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
                     SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
                     SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
                     SizedBox(width: 10),
-                    bigContainer(),
-                    SizedBox(width: 10),
-                    bigContainer(),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
                     SizedBox(width: 10),
                   ],
                 ),
@@ -264,48 +281,59 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget bigContainer() {
+  Widget bigContainer({productText, productImage}) {
     return Container(
-      width: 180,
-      height: 270,
+      width: 160,
+      height: 260,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
         children: [
           Image.asset(
-            'assets/pepsodent.jpg',
+            // 'assets/pepsodent.jpg',
+            productImage,
             width: 170,
+            height: 140,
           ),
           Text(
-            'Pepsodent Cavity\nToothpaste',
+            productText,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
+          SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                '\$90',
-                style: TextStyle(fontStyle: FontStyle.italic, fontSize: 16),
-              ),
-              SizedBox(
-                width: 14,
+              Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: Text(
+                  '\$90',
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 16,
+                    decoration: TextDecoration.lineThrough,
+                    decorationColor: Colors.red,
+                    decorationStyle: TextDecorationStyle.double,
+                  ),
+                ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 30.0),
+                padding: const EdgeInsets.only(right: 30.0, left: 10),
                 child: Text(
                   '\$75',
                   style: TextStyle(fontSize: 16),
                 ),
               ),
               Container(
-                width: 37,
-                height: 39,
+                margin: EdgeInsets.only(right: 5),
+                width: 42,
+                height: 42,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.purple, width: 2),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
                   child: Text(
@@ -326,7 +354,10 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               '1kg',
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.grey),
             ),
           ),
         ],
