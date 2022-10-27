@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
+    var selected = 'first';
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -61,7 +62,9 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     firstRowContainer(
-                        containerColor: Colors.white,
+                        containerColor: selected == Colors.white
+                            ? Color(0xff120E97)
+                            : Colors.white,
                         icon: Icons.health_and_safety,
                         text: 'Health Care',
                         containerHeight: 90.0,
@@ -248,32 +251,40 @@ class _HomePageState extends State<HomePage> {
       containerHeight,
       iconColor,
       textColor}) {
-    return Container(
-      width: containerWidth,
-      height: containerHeight,
-      decoration: BoxDecoration(
-        color: containerColor,
-        border: Border.all(color: Colors.purple, width: 2),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(5),
+    var selected = Colors.white;
+    return GestureDetector(
+      onTap: (() {
+        setState(() {
+          selected == Colors.white ? Color(0xff120E97) : Colors.white;
+        });
+      }),
+      child: Container(
+        width: containerWidth,
+        height: containerHeight,
+        decoration: BoxDecoration(
+          color: containerColor,
+          border: Border.all(color: Colors.purple, width: 2),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(5),
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Icon(
-            icon,
-            size: 50,
-            color: iconColor,
-          ),
-          Text(
-            text,
-            style: TextStyle(
-              fontSize: 16,
-              color: textColor,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Icon(
+              icon,
+              size: 50,
+              color: iconColor,
             ),
-          ),
-        ],
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: 16,
+                color: textColor,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
