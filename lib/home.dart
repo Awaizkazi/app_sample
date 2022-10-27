@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isColored = false;
   int index = 2;
   final items = [
     Icon(Icons.home, size: 30),
@@ -19,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
-    var selected = 'first';
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -62,23 +62,24 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     firstRowContainer(
-                        containerColor: selected == Colors.white
-                            ? Color(0xff120E97)
-                            : Colors.white,
+                        // containerColor:
+                        //     isColored ? Color(0xff120E97) : Colors.white,
                         icon: Icons.health_and_safety,
                         text: 'Health Care',
                         containerHeight: 90.0,
                         containerWidth: 120.0),
                     firstRowContainer(
-                        containerColor: const Color(0xff120E97),
+                        // containerColor:
+                        //     isColored ? Color(0xff120E97) : Colors.white,
                         icon: Icons.personal_injury,
                         text: 'Personal Care',
                         containerHeight: 90.0,
                         containerWidth: 120.0,
-                        iconColor: Colors.white,
-                        textColor: Colors.white),
+                        iconColor: Colors.black,
+                        textColor: Colors.black),
                     firstRowContainer(
-                        containerColor: Colors.white,
+                        // containerColor:
+                        //     isColored ? Color(0xff120E97) : Colors.white,
                         icon: Icons.food_bank,
                         text: 'Food care',
                         containerHeight: 90.0,
@@ -251,18 +252,17 @@ class _HomePageState extends State<HomePage> {
       containerHeight,
       iconColor,
       textColor}) {
-    var selected = Colors.white;
-    return GestureDetector(
+    return InkWell(
       onTap: (() {
         setState(() {
-          selected == Colors.white ? Color(0xff120E97) : Colors.white;
+          isColored = !isColored;
         });
       }),
       child: Container(
         width: containerWidth,
         height: containerHeight,
         decoration: BoxDecoration(
-          color: containerColor,
+          color: isColored ? Color(0xff120E97) : Colors.white,
           border: Border.all(color: Colors.purple, width: 2),
           borderRadius: const BorderRadius.all(
             Radius.circular(5),
