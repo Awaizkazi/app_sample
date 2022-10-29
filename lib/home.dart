@@ -13,7 +13,12 @@ class _HomePageState extends State<HomePage> {
   bool isColored = false;
 
   String isSelected1 = 'HeatlhCare';
-  String isSelected2 = 'SkinCleaning';
+  List<String> isSelected2 = [
+    'SkinCleaning',
+    'OralCare',
+    'SkinCare',
+    'ToothCleaning'
+  ];
   int index = 2;
   final items = [
     Icon(Icons.home, size: 30),
@@ -120,14 +125,15 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(
                       width: 10,
                     ),
+                    // secondRowContainer2(),
                     secondRowContainer(
                         text: 'Skin Cleaning',
-                        colorContainer: isSelected2 == 'SkinCleaning'
+                        colorContainer: isSelected2 == ['SkinCleaning']
                             ? Color(0xff120E97)
                             : Colors.white,
                         onTapped: () {
                           setState(() {
-                            isSelected2 = 'SkinCleaning';
+                            isSelected2 = ['SkinCleaning'];
                             isColored = !isColored;
                           });
                         }),
@@ -136,44 +142,46 @@ class _HomePageState extends State<HomePage> {
                     ),
                     secondRowContainer(
                         text: 'Oral Care',
-                        colorContainer: isSelected2 == 'OralCare'
+                        colorContainer: isSelected2 == ['OralCare']
                             ? Color(0xff120E97)
                             : Colors.white,
                         onTapped: () {
                           setState(() {
-                            isSelected2 = 'OralCare';
+                            isSelected2 = ['OralCare'];
                             isColored = !isColored;
                           });
                         }),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
+                    // secondRowContainer2(),
                     secondRowContainer(
                         text: 'Skin Care',
-                        colorContainer: isSelected2 == 'SkinCare'
+                        colorContainer: isSelected2 == ['SkinCare']
                             ? Color(0xff120E97)
                             : Colors.white,
                         onTapped: () {
                           setState(() {
-                            isSelected2 = 'SkinCare';
+                            isSelected2 = ['SkinCare'];
                             isColored = !isColored;
                           });
                         }),
                     const SizedBox(
                       width: 10,
                     ),
+                    // secondRowContainer2(),
                     secondRowContainer(
                         text: 'Tooth Cleaning',
-                        colorContainer: isSelected2 == 'ToothCleaning'
+                        colorContainer: isSelected2 == ['ToothCleaning']
                             ? Color(0xff120E97)
                             : Colors.white,
                         onTapped: () {
                           setState(() {
-                            isSelected2 = 'ToothCleaning';
+                            isSelected2 = ['ToothCleaning'];
                             isColored = !isColored;
                           });
                         }),
-                    const SizedBox(
+                    SizedBox(
                       width: 10,
                     ),
                   ],
@@ -367,6 +375,43 @@ class _HomePageState extends State<HomePage> {
                 color: textColors, fontWeight: FontWeight.w500, fontSize: 12),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget secondRowContainer2({text, colorContainer, textColors, onTapped}) {
+    return Expanded(
+      child: ListView.builder(
+        itemCount: isSelected2.length,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: onTapped,
+            child: Expanded(
+              child: Container(
+                width: 140,
+                height: 35,
+                decoration: BoxDecoration(
+                  color: colorContainer,
+                  border: Border.all(
+                    color: const Color(0xff0E0C9C),
+                  ),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(50),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                        color: textColors,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 12),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
