@@ -12,11 +12,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isColored = false;
 
-  // bool variable1 = true;
-  // bool variable2 = false;
-  // bool variable3 = false;
-
-  bool isSelected = false;
+  String isSelected1 = 'HeatlhCare';
+  String isSelected2 = 'SkinCleaning';
   int index = 2;
   final items = [
     Icon(Icons.home, size: 30),
@@ -68,9 +65,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     firstRowContainer(
-                        // containerColor:
-                        //     isColored ? Color(0xff120E97) : Colors.white,
-                        containerColor: isSelected != true
+                        containerColor: isSelected1 == 'HeatlhCare'
                             ? Color(0xff120E97)
                             : Colors.white,
                         icon: Icons.health_and_safety,
@@ -79,18 +74,14 @@ class _HomePageState extends State<HomePage> {
                         containerWidth: 120.0,
                         onTapped: () {
                           setState(() {
-                            // variable1 = true;
-                            // variable2 = false;
-                            // variable3 = false;
+                            isSelected1 = 'HeatlhCare';
                             isColored = !isColored;
                           });
                         }),
                     firstRowContainer(
-                        containerColor: isSelected != false
+                        containerColor: isSelected1 == 'PersonalCare'
                             ? Color(0xff120E97)
                             : Colors.white,
-                        // containerColor:
-                        //     isColored ? Color(0xff120E97) : Colors.white,
                         icon: Icons.personal_injury,
                         text: 'Personal Care',
                         containerHeight: 90.0,
@@ -99,28 +90,21 @@ class _HomePageState extends State<HomePage> {
                         textColor: Colors.black,
                         onTapped: () {
                           setState(() {
-                            // variable1 = false;
-                            // variable2 = true;
-                            // variable3 = false;
+                            isSelected1 = 'PersonalCare';
                             isColored = !isColored;
                           });
                         }),
                     firstRowContainer(
-                        containerColor: isSelected == true
+                        containerColor: isSelected1 == 'FoodCare'
                             ? Color(0xff120E97)
                             : Colors.white,
-
-                        // containerColor:
-                        //     isColored ? Color(0xff120E97) : Colors.white,
                         icon: Icons.food_bank,
                         text: 'Food care',
                         containerHeight: 90.0,
                         containerWidth: 120.0,
                         onTapped: () {
                           setState(() {
-                            // variable1 = false;
-                            // variable2 = false;
-                            // variable3 = true;
+                            isSelected1 = 'FoodCare';
                             isColored = !isColored;
                           });
                         }),
@@ -128,145 +112,179 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(height: 30),
-              // SingleChildScrollView(
-              //   scrollDirection: Axis.horizontal,
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //     children: [
-              //       const SizedBox(
-              //         width: 10,
-              //       ),
-              //       secondRowContainer(
-              //           text: 'Skin Cleaning', colorContainer: Colors.white),
-              //       const SizedBox(
-              //         width: 10,
-              //       ),
-              //       secondRowContainer(
-              //           text: 'Oral Care',
-              //           colorContainer: const Color(0xff0E0C9C),
-              //           textColors: Colors.white),
-              //       const SizedBox(
-              //         width: 10,
-              //       ),
-              //       secondRowContainer(
-              //           text: 'Skin Care', colorContainer: Colors.white),
-              //       const SizedBox(
-              //         width: 10,
-              //       ),
-              //       secondRowContainer(
-              //           text: 'Skin Cleaning', colorContainer: Colors.white),
-              //       const SizedBox(
-              //         width: 10,
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Container(
-              //       margin: EdgeInsets.all(13),
-              //       child: Text(
-              //         'Toothpaste',
-              //         style: TextStyle(
-              //             wordSpacing: 2,
-              //             fontSize: 26,
-              //             fontWeight: FontWeight.bold),
-              //       ),
-              //     ),
-              //     Container(
-              //       margin: EdgeInsets.all(13),
-              //       child: Text(
-              //         'See All (10)',
-              //         style: TextStyle(
-              //           wordSpacing: 1,
-              //           fontSize: 20,
-              //           fontWeight: FontWeight.bold,
-              //           color: Color(0xff120E97),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // SingleChildScrollView(
-              //   scrollDirection: Axis.horizontal,
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-              //     children: [
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'Pepsodent Cavity\nToothpaste',
-              //           productImage: 'assets/pepsodent.jpg'),
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'CLoseup Deep\nAction Toothpaste',
-              //           productImage: 'assets/closeup.png'),
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'Pepsodent Cavity\nToothpaste',
-              //           productImage: 'assets/pepsodent.jpg'),
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'CLoseup Deep\nAction Toothpaste',
-              //           productImage: 'assets/closeup.png'),
-              //       SizedBox(width: 10),
-              //     ],
-              //   ),
-              // ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Container(
-              //       margin: EdgeInsets.all(13),
-              //       child: Text(
-              //         'Toothpowder',
-              //         style: TextStyle(
-              //             wordSpacing: 2,
-              //             fontSize: 26,
-              //             fontWeight: FontWeight.bold),
-              //       ),
-              //     ),
-              //     Container(
-              //       margin: EdgeInsets.all(13),
-              //       child: Text(
-              //         'See All (3)',
-              //         style: TextStyle(
-              //           wordSpacing: 1,
-              //           fontSize: 20,
-              //           fontWeight: FontWeight.bold,
-              //           color: Color(0xff120E97),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              // SingleChildScrollView(
-              //   scrollDirection: Axis.horizontal,
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-              //     children: [
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'Pepsodent Cavity\nToothpaste',
-              //           productImage: 'assets/pepsodent.jpg'),
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'CLoseup Deep\nAction Toothpaste',
-              //           productImage: 'assets/closeup.png'),
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'Pepsodent Cavity\nToothpaste',
-              //           productImage: 'assets/pepsodent.jpg'),
-              //       SizedBox(width: 10),
-              //       bigContainer(
-              //           productText: 'CLoseup Deep\nAction Toothpaste',
-              //           productImage: 'assets/closeup.png'),
-              //       SizedBox(
-              //         width: 10,
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    secondRowContainer(
+                        text: 'Skin Cleaning',
+                        colorContainer: isSelected2 == 'SkinCleaning'
+                            ? Color(0xff120E97)
+                            : Colors.white,
+                        onTapped: () {
+                          setState(() {
+                            isSelected2 = 'SkinCleaning';
+                            isColored = !isColored;
+                          });
+                        }),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    secondRowContainer(
+                        text: 'Oral Care',
+                        colorContainer: isSelected2 == 'OralCare'
+                            ? Color(0xff120E97)
+                            : Colors.white,
+                        onTapped: () {
+                          setState(() {
+                            isSelected2 = 'OralCare';
+                            isColored = !isColored;
+                          });
+                        }),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    secondRowContainer(
+                        text: 'Skin Care',
+                        colorContainer: isSelected2 == 'SkinCare'
+                            ? Color(0xff120E97)
+                            : Colors.white,
+                        onTapped: () {
+                          setState(() {
+                            isSelected2 = 'SkinCare';
+                            isColored = !isColored;
+                          });
+                        }),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    secondRowContainer(
+                        text: 'Tooth Cleaning',
+                        colorContainer: isSelected2 == 'ToothCleaning'
+                            ? Color(0xff120E97)
+                            : Colors.white,
+                        onTapped: () {
+                          setState(() {
+                            isSelected2 = 'ToothCleaning';
+                            isColored = !isColored;
+                          });
+                        }),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(13),
+                    child: Text(
+                      'Toothpaste',
+                      style: TextStyle(
+                          wordSpacing: 2,
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(13),
+                    child: Text(
+                      'See All (10)',
+                      style: TextStyle(
+                        wordSpacing: 1,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff120E97),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
+                    SizedBox(width: 10),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(13),
+                    child: Text(
+                      'Toothpowder',
+                      style: TextStyle(
+                          wordSpacing: 2,
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(13),
+                    child: Text(
+                      'See All (3)',
+                      style: TextStyle(
+                        wordSpacing: 1,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff120E97),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'Pepsodent Cavity\nToothpaste',
+                        productImage: 'assets/pepsodent.jpg'),
+                    SizedBox(width: 10),
+                    bigContainer(
+                        productText: 'CLoseup Deep\nAction Toothpaste',
+                        productImage: 'assets/closeup.png'),
+                    SizedBox(
+                      width: 10,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -294,12 +312,6 @@ class _HomePageState extends State<HomePage> {
       textColor,
       onTapped}) {
     return InkWell(
-      // onTap: (() {
-      //   setState(() {
-      //     isColored = !isColored;
-      //     // isSelected = !isSelected;
-      //   });
-      // }),
       onTap: onTapped,
       child: Container(
         width: containerWidth,
@@ -333,24 +345,27 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget secondRowContainer({text, colorContainer, textColors}) {
-    return Container(
-      width: 140,
-      height: 35,
-      decoration: BoxDecoration(
-        color: colorContainer,
-        border: Border.all(
-          color: const Color(0xff0E0C9C),
+  Widget secondRowContainer({text, colorContainer, textColors, onTapped}) {
+    return InkWell(
+      onTap: onTapped,
+      child: Container(
+        width: 140,
+        height: 35,
+        decoration: BoxDecoration(
+          color: colorContainer,
+          border: Border.all(
+            color: const Color(0xff0E0C9C),
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(50),
+          ),
         ),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(50),
-        ),
-      ),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-              color: textColors, fontWeight: FontWeight.w500, fontSize: 12),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+                color: textColors, fontWeight: FontWeight.w500, fontSize: 12),
+          ),
         ),
       ),
     );
