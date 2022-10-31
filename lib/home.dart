@@ -21,10 +21,10 @@ class _HomePageState extends State<HomePage> {
   ];
   int index = 2;
   final items = [
-    Icon(Icons.home, size: 30),
-    Icon(Icons.category, size: 30),
-    Icon(Icons.search, size: 30),
-    Icon(Icons.menu, size: 30),
+    Icon(Icons.home, size: 32),
+    Icon(Icons.category, size: 32),
+    Icon(Icons.search, size: 32),
+    Icon(Icons.menu, size: 32),
   ];
   @override
   Widget build(BuildContext context) {
