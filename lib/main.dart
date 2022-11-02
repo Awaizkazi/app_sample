@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:app_sample/home.dart';
 
+import 'bottom_sheet.dart';
 import 'ex.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: ModalBottomSheets(),
     );
   }
 }
