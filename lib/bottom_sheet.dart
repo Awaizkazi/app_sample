@@ -24,43 +24,50 @@ class _ModalBottomSheetsState extends State<ModalBottomSheets> {
               ),
               context: context,
               builder: ((context) {
-                return Container(
-                  height: 140,
-                  child: Column(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          // _selectedItems('Are You Sure To Remove This Photo');
-                        },
-                        child: Text(
-                          'Are You Sure To Remove This Photo',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                return Stack(
+                  children: [
+                    IconButton(onPressed: () {}, icon: Icon(Icons.close)),
+                    Container(
+                      height: 140,
+                      child: Column(
                         children: [
                           TextButton(
-                            onPressed: () {},
-                            child: Text('Cancel'),
-                          ),
-                          TextButton.icon(
                             onPressed: () {
-                              Navigator.pop(context);
+                              // _selectedItems('Are You Sure To Remove This Photo');
                             },
-                            icon: Icon(
-                              Icons.delete,
-                              color: Colors.red,
+                            child: Text(
+                              'Are You Sure To Remove This Photo',
+                              style: TextStyle(color: Colors.black),
                             ),
-                            label: Text(
-                              'Remove',
-                              style: TextStyle(color: Colors.red),
-                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('Cancel'),
+                              ),
+                              TextButton.icon(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: Icon(
+                                  Icons.delete,
+                                  color: Colors.red,
+                                ),
+                                label: Text(
+                                  'Remove',
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 );
               }),
             );
